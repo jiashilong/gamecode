@@ -1,7 +1,0 @@
-package com.game.server.packet.account;
-
-import com.game.server.packet.Request;
-
-public class RegisterRequest extends Request {
-
-}

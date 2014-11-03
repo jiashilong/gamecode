@@ -1,7 +1,0 @@
-package com.game.server.packet;
-
-public abstract class Handler {
-	
-	public abstract void handle(Request request);
-	
-}

@@ -1,5 +1,0 @@
-package com.game.server.packet;
-
-public class Request implements Packet {
-
-}

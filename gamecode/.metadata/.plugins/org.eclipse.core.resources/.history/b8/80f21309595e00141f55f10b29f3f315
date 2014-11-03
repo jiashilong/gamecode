@@ -1,7 +1,0 @@
-package com.game.server.packet;
-
-public class RequestFactoryManager {
-	
-	private Map<Integer,RequestFactory> requestFactoryMap = new HashMap<Integer,RequestFactory>();
-	
-}

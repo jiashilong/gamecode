@@ -1,6 +1,0 @@
-package com.game.server.packet;
-
-public interface Packet {
-	int id = 0;
-	
-}

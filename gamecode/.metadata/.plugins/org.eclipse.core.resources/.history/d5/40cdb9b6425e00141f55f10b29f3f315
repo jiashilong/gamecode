@@ -1,8 +1,0 @@
-package com.game.util;
-
-public class Debugger {
-	
-	public static void debug(String msg) {
-		
-	}
-}

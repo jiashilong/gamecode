@@ -1,6 +1,0 @@
-package com.game.util;
-
-public class MessageUtil {
-	
-	private static int gid = 0;
-}

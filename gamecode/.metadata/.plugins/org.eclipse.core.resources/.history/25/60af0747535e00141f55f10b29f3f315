@@ -1,8 +1,0 @@
-package com.game.server.packet.factory;
-
-public class LoginRequestFactory {
-	
-	public LoginRequest getRequest() {
-		return new LoginRequest();
-	}
-}

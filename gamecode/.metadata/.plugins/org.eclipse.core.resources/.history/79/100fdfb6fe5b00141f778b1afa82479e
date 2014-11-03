@@ -1,0 +1,7 @@
+package com.game.server;
+
+public class SocketServer {
+	
+	private String host;
+	private int port;
+}

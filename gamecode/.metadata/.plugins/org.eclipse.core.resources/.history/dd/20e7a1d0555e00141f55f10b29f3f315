@@ -1,0 +1,5 @@
+package com.game.server.packet;
+
+public class Handler {
+
+}

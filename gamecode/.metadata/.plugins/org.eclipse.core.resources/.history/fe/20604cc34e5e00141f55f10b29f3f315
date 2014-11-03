@@ -1,0 +1,9 @@
+package com.game.server.packet;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class RequestFactory {
+	
+	private static Map<Integer, Request> requestMap = new HashMap<Integer, Request>();
+}

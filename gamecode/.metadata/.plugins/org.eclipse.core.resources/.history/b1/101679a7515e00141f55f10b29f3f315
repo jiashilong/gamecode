@@ -1,0 +1,17 @@
+package com.game.server.packet;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class RequestFactory {
+	
+	private  Map<Integer, Request> requestMap = new HashMap<Integer, Request>();
+	
+	public void init() {
+		requestMap.put(1000, new LoginRequest());
+	}
+	
+	public Request getRequest(int id) {
+		return requestMap.get(id);
+	}
+}

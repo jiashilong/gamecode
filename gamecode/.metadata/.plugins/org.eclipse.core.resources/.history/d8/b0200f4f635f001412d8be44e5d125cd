@@ -1,0 +1,42 @@
+package com.game.server.packet;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+import org.jboss.netty.buffer.ChannelBuffers;
+
+import com.game.server.buf.MessageBuffer;
+
+public abstract class Response {
+
+	private int id;
+	int ret;
+	private MessageBuffer buf = new MessageBuffer(ChannelBuffers.dynamicBuffer());
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public int getRet() {
+		return ret;
+	}
+
+	public void setRet(int ret) {
+		this.ret = ret;
+	}
+	
+	public ChannelBuffer encodeAll() {
+		ChannelBuffer cb = ChannelBuffers.dynamicBuffer();
+		MessageBuffer buf = encode();
+		int bufSize = buf.writerIndex();
+		int packSize = 8 + bufSize;
+		cb.writeInt(packSize);
+		cb.writeInt(id);
+		byte[] bs = buf.array();
+		cb.writeBytes(bs);
+		return cb;
+	}
+	public abstract MessageBuffer encode();
+}

@@ -1,0 +1,14 @@
+package com.game.server.packet.account;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.game.server.packet.Request;
+
+public class RegisterRequest extends Request {
+
+	@Override
+	public void decodeBuffer(ChannelBuffer buffer) {
+		
+	}
+
+}

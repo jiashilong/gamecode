@@ -1,0 +1,11 @@
+package com.game.server.packet;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.game.server.packet.account.LoginRequest;
+
+public class RequestFactory {
+	
+	public abstract Request getRequest();
+}

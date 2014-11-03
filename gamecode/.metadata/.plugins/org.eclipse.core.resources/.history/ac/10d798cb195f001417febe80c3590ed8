@@ -1,0 +1,26 @@
+package com.game.server.packet.account;
+
+import com.game.server.packet.Handler;
+import com.game.server.packet.Request;
+import com.game.server.packet.Response;
+import com.game.util.Debugger;
+
+public class LoginHandler extends Handler {
+
+	@Override
+	public Response handle(Request request) {
+		LoginRequest loginRequest = (LoginRequest)request;
+		String username = loginRequest.getUsername();
+		String passwd = loginRequest.getPasswd();
+		int sid = loginRequest.getSid();
+		
+		if(username.equals("jarry") && passwd.equals("00001") && sid==100) {
+			Debugger.log("login ok");
+		} else {
+			Debugger.log("login error");
+		}
+		
+		return null;
+	}
+
+}

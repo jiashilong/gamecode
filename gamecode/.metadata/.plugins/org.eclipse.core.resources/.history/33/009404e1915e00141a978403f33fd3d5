@@ -1,0 +1,26 @@
+package com.game.server.packet.account;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.game.server.packet.Response;
+
+public class RegisterResponse extends Response {
+	
+	private String username;
+	private String passwd;
+	
+	public RegisterResponse() {
+		username = "";
+		passwd = "";
+	}
+	
+	public RegisterResponse(String username, String passwd) {
+		this.username = username;
+		this.passwd = passwd;
+	}
+	@Override
+	public ChannelBuffer encode() {
+		return null;
+	}
+
+}

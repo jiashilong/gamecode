@@ -1,0 +1,59 @@
+package com.game.server.packet.account;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.game.server.packet.Request;
+
+public class RegisterRequest extends Request {
+	
+	private String username;
+	private String passwd;
+	
+	public RegisterRequest() {
+		username = "";
+		passwd = "";
+	}
+	
+	public RegisterRequest(String username, String passwd) {
+		this.username = username;
+		this.passwd = passwd;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	@Override
+	public String toString() {
+		return "RegisterRequest [username=" + username + ", passwd=" + passwd
+				+ "]";
+	}
+
+	@Override
+	public void decodeBuffer(MessageBuffer buffer) {
+		int usernameLen = buffer.readInt();
+		byte[] usernameBytes = new byte[usernameLen];
+		buffer.readBytes(usernameBytes);
+		username = new String(usernameBytes);
+		setUsername(username);
+		
+		int passwdLen = buffer.readInt();
+		byte[] passwdBytes = new byte[passwdLen];
+		buffer.readBytes(passwdBytes);
+		passwd = new String(passwdBytes);
+		setPasswd(passwd);
+	}
+
+}

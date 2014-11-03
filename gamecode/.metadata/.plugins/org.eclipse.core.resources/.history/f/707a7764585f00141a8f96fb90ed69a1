@@ -1,0 +1,27 @@
+package com.game.server.packet;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+
+public abstract class Response {
+
+	private int id;
+	int ret;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public int getRet() {
+		return ret;
+	}
+
+	public void setRet(int ret) {
+		this.ret = ret;
+	}
+
+	public abstract ChannelBuffer encode();
+}

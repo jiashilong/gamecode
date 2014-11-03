@@ -1,0 +1,28 @@
+package com.game.server;
+
+import org.jboss.netty.bootstrap.ServerBootstrap;
+
+public class SocketServer {
+	
+	private String host;
+	private int port;
+	private ServerBootstrap bootsstrap;
+	
+	public SocketServer() {
+		host = "localhost";
+		port = 8080;
+	}
+	
+	public SocketServer(String host, int port) {
+		this.host = host;
+		this.port = port;
+	}
+	
+	private void init() {
+		
+	}
+	
+	public void start() {
+		
+	}
+}

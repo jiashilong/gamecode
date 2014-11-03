@@ -1,0 +1,5 @@
+package com.game.server.packet.account;
+
+public class LoginEncoder {
+
+}

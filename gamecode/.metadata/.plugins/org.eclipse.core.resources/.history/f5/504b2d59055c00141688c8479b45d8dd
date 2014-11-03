@@ -1,0 +1,59 @@
+package com.game.server;
+
+import java.nio.ByteOrder;
+import java.util.concurrent.Executors;
+
+import org.jboss.netty.bootstrap.ServerBootstrap;
+import org.jboss.netty.buffer.HeapChannelBufferFactory;
+import org.jboss.netty.channel.ChannelFactory;
+import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
+
+public class SocketServer {
+	
+	private String host;
+	private int port;
+	private ServerBootstrap bootstrap;
+	
+	public SocketServer() {
+		host = "localhost";
+		port = 8080;
+		init();
+	}
+	
+	public SocketServer(String host, int port) {
+		this.host = host;
+		this.port = port;
+		init();
+	}
+	
+	private void init() {
+		bootstrap = new ServerBootstrap();
+		bootstrap.setOption("reuseAddress", true);
+		bootstrap.setOption("child.tcpNoDelay", true);
+		bootstrap.setOption("child.receiveBufferSize", 4*1024*1024);
+		bootstrap.setOption("child.sendBufferSize", 4*1024*1024);
+		bootstrap.setOption("child.keepAlive", true);
+		if(ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
+			System.out.println("cpu: big_endian");
+			bootstrap.setOption("child.bufferFactory", new HeapChannelBufferFactory(ByteOrder.BIG_ENDIAN));
+		} else {
+			System.out.println("cpu: little_endian");
+		}
+		
+		ChannelFactory factory = new NioServerSocketChannelFactory(Executors.newCachedThreadPool(), Executors.newCachedThreadPool());
+		bootstrap.setFactory(factory);
+		bootstrap.setPipelineFactory(new SocketPipelineFactory());
+		
+	}
+	
+	public void start() {
+		
+	}
+	
+	public static void main(String[] args) {
+		SocketServer server = new SocketServer();
+		System.out.println(server.host);
+		System.out.println(server.port);
+		System.out.println(server.bootstrap);
+	}
+}

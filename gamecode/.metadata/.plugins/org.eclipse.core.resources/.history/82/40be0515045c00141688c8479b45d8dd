@@ -1,0 +1,7 @@
+package com.game.server;
+
+import org.jboss.netty.channel.ChannelPipelineFactory;
+
+public class SocketPipelineFactory implements ChannelPipelineFactory {
+
+}

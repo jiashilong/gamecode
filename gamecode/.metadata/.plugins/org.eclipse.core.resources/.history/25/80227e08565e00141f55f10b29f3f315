@@ -1,0 +1,7 @@
+package com.game.server.packet.account;
+
+import com.game.server.packet.RequestFactory;
+
+public class LoginFactory extends RequestFactory {
+
+}

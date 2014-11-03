@@ -1,0 +1,5 @@
+package com.game.server.packet;
+
+public abstract class Request implements Packet {
+	
+}

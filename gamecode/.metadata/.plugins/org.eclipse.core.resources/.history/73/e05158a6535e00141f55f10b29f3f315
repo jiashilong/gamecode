@@ -1,0 +1,10 @@
+package com.game.server.packet.factory;
+
+import com.game.server.packet.LoginRequest;
+
+public class LoginRequestFactory {
+	
+	public LoginRequest getRequest() {
+		return new LoginRequest();
+	}
+}
